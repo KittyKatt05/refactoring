@@ -1,7 +1,7 @@
 package pt.up.fe.ldts.example6;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +14,7 @@ public class TreeTest {
     public Tree tree;
     public Date date;
 
-    @Before
+    @BeforeEach
     public void setUp() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         date = sdf.parse("31-08-2002 10:20:56");
@@ -41,7 +41,7 @@ public class TreeTest {
     @Test
     public void testToString() {
         String result = tree.toString();
-        assertEquals("Tree planted at Sat Aug 31 10:20:56 WEST 2002 in location 41.177772696363114,-8.59843522310257 (FEUP)", result);
+        assertEquals("Tree planted at Sat Aug 31 10:20:56 BST 2002 in location 41.177772696363114,-8.59843522310257 (FEUP)", result);
     }
 
     @Test
