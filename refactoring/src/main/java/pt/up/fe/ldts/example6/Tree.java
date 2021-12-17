@@ -7,25 +7,27 @@ import java.util.List;
 
 public class Tree {
     public Date plantedAt;
-    public String locationLatitude;
-    public String locationLongitude;
-    public String locationName;
+    private Location location;
     private List<Date> appraisalDates;
 
-    public Tree(Date plantedAt, String locationLatitude, String locationLongitude, String locationName){
+    public Tree(Date plantedAt, Location location){
         this.plantedAt = plantedAt;
-        this.setLocation(locationLatitude, locationLongitude, locationName);
         this.appraisalDates = new ArrayList<>();
+        this.location = location;
     }
 
     public void setLocation(String locationLatitude, String locationLongitude, String locationName){
-        this.locationLatitude = locationLatitude;
-        this.locationLongitude = locationLongitude;
-        this.locationName = locationName;
+        location.setLocationLatitude(locationLatitude);
+        location.setLocationLongitude(locationLongitude);
+        location.setLocationName(locationName);
+    }
+
+    public Location getLocation(){
+        return location;
     }
 
     public String toString() {
-        return "Tree planted at " + this.plantedAt.toString() + " in location " + this.locationLatitude + "," + this.locationLongitude + " (" + this.locationName + ")";
+        return "Tree planted at " + this.plantedAt.toString() + " in location " + location.toString();
     }
 
     void addAppraisal(Date appraisalDate) {
